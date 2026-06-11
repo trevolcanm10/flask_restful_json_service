@@ -1,0 +1,51 @@
+### Servicio activo
+GET http://localhost:5000/api/health
+
+### Login
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "123456"
+}
+
+### Listar productos
+GET http://localhost:5000/api/productos
+Accept: application/json
+
+### Buscar productos
+GET http://localhost:5000/api/productos/buscar?q=laptop
+Accept: application/json
+
+### Obtener producto por ID
+GET http://localhost:5000/api/productos/1
+Accept: application/json
+
+### Crear producto
+# Reemplazar TOKEN_AQUI por el access_token devuelto en el login.
+POST http://localhost:5000/api/productos
+Content-Type: application/json
+Authorization: Bearer TOKEN_AQUI
+
+{
+  "nombre": "Monitor LG 24 pulgadas",
+  "descripcion": "Monitor Full HD para oficina",
+  "categoria": "Tecnología",
+  "precio": 620.50,
+  "stock": 12
+}
+
+### Actualizar producto
+PUT http://localhost:5000/api/productos/1
+Content-Type: application/json
+Authorization: Bearer TOKEN_AQUI
+
+{
+  "precio": 3399.90,
+  "stock": 10
+}
+
+### Eliminar producto lógicamente
+DELETE http://localhost:5000/api/productos/1
+Authorization: Bearer TOKEN_AQUI
