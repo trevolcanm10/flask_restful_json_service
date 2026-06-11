@@ -1,10 +1,17 @@
 /// Configuración centralizada de la API.
 /// Cambiar [baseUrl] según el entorno (local, emulador, producción).
 class ApiConfig {
-  /// Para emulador Android usar: http://10.0.2.2:5000/api
-  /// Para web/navegador usar:    http://localhost:5000/api
-  /// Para dispositivo físico:    http://<IP_DEL_SERVIDOR>:5000/api
-  static const String baseUrl = "http://10.0.2.2:5000/api";
+  /// URL base de la API desplegada en Render.
+  /// Cambiar según el entorno (local, emulador, producción).
+  ///
+  /// LOCAL:
+  ///   - Emulador Android: http://10.0.2.2:5000/api
+  ///   - Web/navegador:    http://localhost:5000/api
+  ///   - Dispositivo físico: http://<IP_DEL_SERVIDOR>:5000/api
+  ///
+  /// PRODUCCIÓN (Render):
+  static const String baseUrl =
+      "https://flask-restful-json-service-r29b.onrender.com/api";
 
   // Endpoints de autenticación
   static const String loginEndpoint = "/auth/login";
