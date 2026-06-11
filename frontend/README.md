@@ -1,17 +1,43 @@
-# frontend
+# Frontend Móvil — Flutter
 
-A new Flutter project.
+Aplicación móvil desarrollada con **Flutter** que consume la API REST de productos protegida con JWT.
 
-## Getting Started
+## 📱 Funcionalidades
 
-This project is a starting point for a Flutter application.
+- **Login**: Autenticación con JWT, almacenamiento seguro del token
+- **Lista de Productos**: Búsqueda en tiempo real, pull-to-refresh, FAB para crear
+- **Detalle de Producto**: Información completa con opciones de editar y eliminar
+- **Crear/Editar**: Formulario con validación de campos
 
-A few resources to get you started if this is your first Flutter project:
+## 🧱 Arquitectura
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+- **Clean Architecture**: Separación en capas data, domain y presentation
+- **MVVM**: View → ViewModel (Provider) → Model
+- **GoRouter**: Navegación declarativa con redirect automático por autenticación
+- **Dio**: Cliente HTTP con interceptor JWT y manejo de sesión expirada
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🚀 Ejecutar
+
+```bash
+cd frontend
+flutter pub get
+flutter run
+```
+
+## 🔧 Construir APK
+
+```bash
+flutter build apk --release
+```
+
+El APK se genera en: `build/app/outputs/flutter-apk/app-release.apk`
+
+## 📁 Estructura principal
+
+```
+lib/
+├── core/           # Configuración, red, rutas, tema, utilidades
+├── features/
+│   ├── auth/       # Login (data, domain, presentation)
+│   └── productos/  # CRUD productos (data, domain, presentation)
+└── main.dart       # Punto de entrada (Provider + GoRouter)
